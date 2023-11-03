@@ -12,6 +12,7 @@ class MainPage extends StatefulWidget {
 class HomePageState extends State<MainPage> {
   bool anim = false;
   var currentIndex = 0;
+  var favoritesList = <Widget>[];
 
   final widgetList = <Widget>[
     const MainScreen(),
@@ -261,9 +262,12 @@ class MainScreen extends StatelessWidget {
               ),
             ),
             const Center(
-              child: Text(
-                'Desculpe, no momento sem exposições ativas',
-                style: TextStyle(fontSize: 32),
+              child: Padding(
+                padding: EdgeInsets.all(32),
+                child: Text(
+                  'Desculpe, no momento sem exposições ativas',
+                  style: TextStyle(fontSize: 32),
+                ),
               ),
             )
           ],

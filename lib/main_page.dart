@@ -15,17 +15,62 @@ class HomePageState extends State<MainPage> {
 
   final widgetList = <Widget>[
     const MainScreen(),
-    const Column(children: [
-      EventWidget(
-        label: 'Museu de Arte\nModerna da Bahia ',
+    Scaffold(
+      appBar: AppBar(
+        actions: const [
+          Row(
+            children: [
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Olá,\n',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontFamily: 'Karma',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Nome da Pessoa',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontFamily: 'Karma',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+                textAlign: TextAlign.right,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              CircleAvatar(
+                backgroundImage: NetworkImage(
+                  'https://cms.forbesafrica.com/wp-content/uploads/2023/04/22-scaled.jpg',
+                ),
+              ),
+              SizedBox(
+                width: 16,
+              ),
+            ],
+          )
+        ],
+        backgroundColor: const Color(0xFF5A2A27),
       ),
-    ]),
-    Container(
-      child: const Center(child: Text('Tela de camera')),
+      body: const Column(children: [
+        EventWidget(
+          url:
+              'https://w8e8i3u2.stackpathcdn.com/wp-content/uploads/2018/06/Museu-de-Arte-Moderna-da-Bahia-MAM-em-Salvador-2.jpg',
+          label: 'Museu de Arte\nModerna da Bahia ',
+        ),
+      ]),
     ),
-    Container(
-      child: const Center(child: Text('Tela de config')),
-    ),
+    const Center(child: Text('Tela de camera')),
+    const Center(child: Text('Tela de config')),
     // Container()
   ];
 
@@ -95,16 +140,16 @@ class MainScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          actions: [
+          actions: const [
             Row(
               children: [
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
                         text: 'Olá,\n',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 16,
                           fontFamily: 'Karma',
                           fontWeight: FontWeight.w500,
@@ -113,7 +158,7 @@ class MainScreen extends StatelessWidget {
                       TextSpan(
                         text: 'Nome da Pessoa',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 18,
                           fontFamily: 'Karma',
                           fontWeight: FontWeight.w500,
@@ -123,13 +168,16 @@ class MainScreen extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right,
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(
-                    'https://i0.wp.com/www.ghanacelebrities.com/wp-content/uploads/2017/07/Black-woma.jpeg?resize=759%2C594',
-                    height: 50,
-                    width: 50,
+                SizedBox(
+                  width: 8,
+                ),
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    'https://cms.forbesafrica.com/wp-content/uploads/2023/04/22-scaled.jpg',
                   ),
+                ),
+                SizedBox(
+                  width: 16,
                 ),
               ],
             )
@@ -178,13 +226,16 @@ class MainScreen extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   EventWidget(
+                    url:
+                        'https://w8e8i3u2.stackpathcdn.com/wp-content/uploads/2018/06/Museu-de-Arte-Moderna-da-Bahia-MAM-em-Salvador-2.jpg',
                     label: 'Museu de Arte\nModerna da Bahia ',
                     isFavorite: true,
                   ),
                   EventWidget(
+                    url:
+                        'https://imgsapp2.correiobraziliense.com.br/app/noticia_127983242361/2018/02/11/658933/20180209173038221345o.jpg',
                     label: 'Casa do Carnaval\nda Bahia',
                   )
                 ],
@@ -195,12 +246,15 @@ class MainScreen extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   EventWidget(
+                    url:
+                        'https://pelourinhodiaenoite.salvador.ba.gov.br/wp-content/uploads/2018/10/solar-ferrao-1.jpg',
                     label: 'Centro Cultural\nSolar Ferrão',
                   ),
                   EventWidget(
+                    url:
+                        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/10/c1/6a/vista-do-atelier.jpg?w=1200&h=-1&s=1',
                     label: 'Ateliê Rebouças',
                   )
                 ],
@@ -222,9 +276,11 @@ class MainScreen extends StatelessWidget {
 class EventWidget extends StatelessWidget {
   final String label;
   final bool isFavorite;
+  final String url;
   const EventWidget({
     super.key,
     required this.label,
+    required this.url,
     this.isFavorite = false,
   });
 
@@ -240,10 +296,11 @@ class EventWidget extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Container(
+              Image.network(
+                url,
                 height: 150,
                 width: 200,
-                color: Colors.white,
+                fit: BoxFit.cover,
               ),
               if (isFavorite)
                 const Positioned(

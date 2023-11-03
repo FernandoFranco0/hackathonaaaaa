@@ -119,34 +119,32 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SizedBox(
-            width: 300,
-            child: Row(
-              children: [
-                const Text(
-                  "Não tem uma conta?",
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Não tem uma conta?",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 19,
+                    fontWeight: FontWeight.w500),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const UserRegPage()));
+                },
+                child: const Text(
+                  "Cadastre-se",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 19,
-                      fontWeight: FontWeight.w500),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const UserRegPage()));
-                  },
-                  child: const Text(
-                    "Cadastre-se",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 19,
-                      fontWeight: FontWeight.w700,
-                      decoration: TextDecoration.underline,
-                    ),
+                    color: Colors.black,
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
+                    decoration: TextDecoration.underline,
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
           TextButton(
             onPressed: () {

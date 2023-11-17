@@ -1,16 +1,15 @@
-# hackathon
+# Hackathon
 
-A new Flutter project.
+Projeto elaborado em concordância com as normas de participação da Hackathon da Semana da Computação de Salvador de 2023, com o tema “Tecnologia e Cultura: O futuro que criamos hoje”.
 
-## Getting Started
+## Membros
 
-This project is a starting point for a Flutter application.
+Adrielle Andrade Carvalho
 
-A few resources to get you started if this is your first Flutter project:
+Alexandre Fonseca Silva Campos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Cláudio de Faria Dantas
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Fernando Franco de Lacerda Neto
+
+Raquel Paradella Freitas Maranhão
